@@ -1,5 +1,4 @@
 var prompt = require("prompt-sync")();
-// npm install prompt-sync
 
 class Pet {
 	constructor(name, happiness = 5, hungerLevel = 5) {
@@ -81,24 +80,24 @@ function interactWithPet() {
 		} else {
 			action = prompt(`What would you like to do with ${pet.name}? `);
 		}
-		if (action.toLowerCase() === "play") {
+		if (action.trim().toLowerCase() === "play") {
 			pet.playWith();
-		} else if (action.toLowerCase() === "feed") {
+		} else if (action.trim().toLowerCase() === "feed") {
 			pet.feed();
-		} else if (action.toLowerCase() === "check on") {
+		} else if (action.trim().toLowerCase() === "check on") {
 			let happinessLevel = pet.getHappiness();
 			let hungerLevel = pet.getHungerLevel();
 			console.log(happinessLevel);
 			console.log(hungerLevel + "\n");
 			let furtherInfo = prompt(`Would you like to see more information about ${pet.name}? `);
-			if (furtherInfo.toLowerCase() === "yes") {
+			if (furtherInfo.trim().toLowerCase() === "yes") {
 				console.log(
 					`Pet name: ${pet.name}, happiness: ${pet.happiness}/10, hunger: ${pet.hungerLevel}/10\n`
 				);
 			}
-		} else if (action.toLowerCase() === "leave alone") {
+		} else if (action.trim().toLowerCase() === "leave alone") {
 			pet.leaveAlone();
-		} else if (action.toLowerCase() === "done") {
+		} else if (action.trim().toLowerCase() === "done") {
 			console.log(`Thanks for playing with ${pet.name} today! Goodbye!`);
 			done = true;
 		} else {
